@@ -20,7 +20,7 @@ the aligned problem and requirements from the brainstorm phase.
 ## Execution Constraints (CRITICAL)
 
 1.  You **MUST** read and apply the
-    execution instructions in `resources/execution_instructions.md`.
+    execution instructions in `../../resources/execution_instructions.md`.
 2.  **Artifact-First Delivery (MANDATORY)**: You are **STRICTLY FORBIDDEN** from
     presenting large proposals, drafts, summaries, or plans directly in the chat
     pane. You **MUST** write them directly to the working directory (or your

@@ -19,7 +19,7 @@ Reviews and validates a design document through specialized reviewer personas.
 ## Delegation
 
 A Goldfish runs in a fresh context with no conversation history. Spawn each
-subagent with your harness's subagent tool (Antigravity: `invoke_subagent`; Claude Code: `Agent`; Codex: `spawn_agent`). Each subagent is defined in `agents/<file>.md`, and its
+subagent with your harness's subagent tool (Antigravity: `invoke_subagent`; Claude Code: `Agent`; Codex: `spawn_agent`). Each subagent is defined in `../../agents/<file>.md`, and its
 frontmatter `name` (for example `egm-zoom-out`) is the subagent type to request
 where your harness registers named subagents. Otherwise spawn a general-purpose
 subagent and tell it to read that persona file first. Pass the prompt verbatim
@@ -295,8 +295,8 @@ plain chat):
 ### Subflow: Zoom Out Review
 
 1.  **Delegate to Synthesizer Subagent**: Spawn `egm-synthesizer` (or the
-    specialized `egm-zoom-out` subagent at `agents/zoom_out.md`) on `full file`
-    applying `resources/document_standards/zoom-out-standard.md`. When running
+    specialized `egm-zoom-out` subagent at `../../agents/zoom_out.md`) on `full file`
+    applying `../../resources/document_standards/zoom-out-standard.md`. When running
     as Step 8 (Intermediate Zoom Out), include `zoom_out_report.md` path in
     context and focus on additions/mitigations from Comprehension and Critic
     stages.
@@ -326,7 +326,7 @@ plain chat):
 ### Subflow: Comprehension Test
 
 1.  **Spawn the Reviewer Directly**: Spawn the `egm-comprehension` subagent
-    at `agents/comprehension.md` on `FeatureRange` & `DetailedRange` with no
+    at `../../agents/comprehension.md` on `FeatureRange` & `DetailedRange` with no
     document standard. Do not use the synthesizer: its report keeps only
     findings, and the author must see the paraphrase. The test is self-containment,
     not detail. Do not apply `re-implementation-standard.md`: it asks for

@@ -1,0 +1,22 @@
+{
+  "name": "pi-elephant-goldfish",
+  "version": "1.0.0",
+  "description": "Elephant-Goldfish Model (EGM): design with an elephant, review with a goldfish. Portable skills and reviewer agents for Pi, Pi-Bolt, and omp.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "keywords": ["pi-package", "omp-plugin", "agent-skills", "design", "review", "elephant-goldfish"],
+  "files": ["extensions", "skills", "agents", "resources", "docs", "scripts", "README.md", "LICENSE", "CHANGELOG.md"],
+  "scripts": {
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "pi": {
+    "extensions": ["./extensions/pi-elephant-goldfish.js"],
+    "skills": ["./skills"]
+  },
+  "omp": {
+    "extensions": ["./extensions/pi-elephant-goldfish.js"]
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

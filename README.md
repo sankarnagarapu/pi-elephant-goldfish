@@ -123,6 +123,41 @@ You can use each skill when you need it. You do not have to follow the full sequ
 
 Read [contributing](https://github.com/google/elephant-goldfish-model/blob/main/CONTRIBUTING.md) for PRs, [issues](https://github.com/google/elephant-goldfish-model/issues) for bugs, and [discussions](https://github.com/google/elephant-goldfish-model/discussions) for questions.
 
+
+## Install (Pi, Pi-Bolt, and omp)
+
+This package is a portable Pi/Pi-Bolt/omp plugin (like `pi-senior-engineer`), exposing all EGM skills plus a default-on index prompt.
+
+```sh
+pi install ~/Projects/work/pi-elephant-goldfish
+pi-bolt install ~/Projects/work/pi-elephant-goldfish
+omp plugin link ~/Projects/work/pi-elephant-goldfish
+```
+
+Run only the command for the host you use. Pi and Pi-Bolt share `~/.pi/agent`, so one local installation covers both; omp has its own registry. Restart the host after installing.
+
+Single invocation without persistent install:
+
+```sh
+pi -e ~/Projects/work/pi-elephant-goldfish
+pi-bolt -e ~/Projects/work/pi-elephant-goldfish
+omp -e ~/Projects/work/pi-elephant-goldfish
+```
+
+OpenCode: register the skill source and server plugin in `~/.config/opencode/opencode.json`:
+
+```jsonc
+{
+  "plugins": ["~/Projects/work/pi-elephant-goldfish/extensions/opencode"],
+  "skills": ["~/Projects/work/pi-elephant-goldfish/skills"],
+}
+```
+
+Skills are invoked as `/skill:egm-brainstorm`, `/skill:egm-draft`, etc. The extension appends a short EGM index to the system prompt by default; toggle with `/egm on|off|status`. Do not invoke the `egm` skill while the extension is active to avoid duplicate policy injection.
+
+Goldfish reviews require fresh subagent contexts. Pi-Bolt provides subagents via `opensec-pi-subagents`; Pi core does not, so reviewers may need to run inline or in separate `pi` invocations (losing zero-context isolation).
+
+
 ## License
 
 [Apache 2.0](LICENSE). This is not an officially supported Google product.
